@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showOn() {
+            let inputElement = document.getElementById('enternumber');
+            let resultElement = document.getElementById('result');
+            let N = parseInt(inputElement.value)
+
+            if (isNaN(N) || N <= 0 || N > 2147483647) {
+                resultElement.innerHTML = 'Please enter a valid positive 32-bit integer.';
+                return; // Exit the function early if the input is not valid
+            }
+
+            // Clear previous result
+            resultElement.innerHTML = ''
+            for (let i = 1; i <= N; i++) {
+                document.getElementById('result').innerHTML += i + ' ';
+
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <p>
+    <h2>Numbers from 1 to N</h2>
+    </p>
+    <p>Enter a positive interger N:
+        <input type="text" id="enternumber">
+        <button id="buttonshow" onclick="showOn()">Print Numebrs</button>
+    </p>
+
+    <p id="result"></p>
+</body>
+
+
+</html>

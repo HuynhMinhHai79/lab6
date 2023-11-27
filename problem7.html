@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showOn() {
+            var inputText = document.getElementById('numbers').value;
+            var numbers = inputText.split(',').map(function (item) {
+                return parseFloat(item);
+            });
+
+            if (numbers.some(isNaN)) {
+                document.getElementById('result').innerText = 'Please enter valid numbers.';
+                return;
+            }
+
+            var sum = 0;
+            for (let i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+            }
+
+            var max = Math.max(...numbers);
+            var min = Math.min(...numbers);
+
+            var avr = (max + min) / 2;
+
+            // display the result
+            document.getElementById('result').innerText = "Min = " + min + "\n Max = " + max + "\n Sum = " + sum + "\n Ave = " + avr;
+        }
+    </script>
+</head>
+
+<body>
+    <p>
+        <h3>MMSA of N Numbers</h3>
+    </p>
+    <p>Enter numbers separated by commas
+        <input type="text" id="numbers">
+        <button id="buttoncalculate" onclick="showOn()">calculate MMSA</button>
+        <p id="result"></p>
+    </p>
+</body>
+
+</html>
